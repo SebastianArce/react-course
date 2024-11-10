@@ -9,7 +9,7 @@ export default function Sidebar() {
 
       <button className="my-4 bg-gray-700 text-white hover:bg-gray-600 rounded-md flex items-center px-4 py-2">
         <FaPlus className="mr-2" />
-        Add project
+        Add Project
       </button>
       <ul className="text-white">
         <li>
