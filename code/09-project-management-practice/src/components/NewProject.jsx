@@ -1,9 +1,8 @@
 import noProjectLogo from "../assets/no-projects.png";
-import { FaPlus } from "react-icons/fa";
 
-export default function NewProject() {
+export default function NewProject({ onAddProject }) {
   return (
-    <div className="flex items-center justify-center h-screen flex-col gap-4 w-4/5">
+    <div className="flex items-center justify-center h-screen flex-col gap-4 w-3/4">
       <img
         src={noProjectLogo}
         alt="Notebook image with pen"
@@ -16,7 +15,10 @@ export default function NewProject() {
         <p className="text-gray-500">
           Select a project or get started with a new one
         </p>
-        <button className="my-4 bg-gray-700 text-white hover:bg-gray-600 rounded-md flex items-center px-4 py-2 mx-auto">
+        <button
+          onClick={onAddProject}
+          className="my-4 bg-gray-700 text-white hover:bg-gray-600 rounded-md flex items-center px-4 py-2 mx-auto"
+        >
           Create new project
         </button>
       </div>

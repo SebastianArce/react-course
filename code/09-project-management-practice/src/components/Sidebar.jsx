@@ -1,13 +1,16 @@
 import { FaPlus } from "react-icons/fa";
 
-export default function Sidebar() {
+export default function Sidebar({ onAddProject }) {
   return (
-    <div className=" p-4 w-1/5 bg-gray-800 h-screen">
+    <div className=" p-4 w-1/4 bg-gray-800 h-screen">
       <div className="flex items-center justify-left h-16 text-white text-2xl font-bold">
         YOUR PROJECTS
       </div>
 
-      <button className="my-4 bg-gray-700 text-white hover:bg-gray-600 rounded-md flex items-center px-4 py-2">
+      <button
+        onClick={onAddProject}
+        className="my-4 bg-gray-700 text-white hover:bg-gray-600 rounded-md flex items-center px-4 py-2"
+      >
         <FaPlus className="mr-2" />
         Add Project
       </button>
@@ -18,7 +21,7 @@ export default function Sidebar() {
           </button>
         </li>
         <li>
-          <button className="w-full hover:bg-gray-700 text-left px-4 py2">
+          <button className="w-full hover:bg-gray-700 text-left px-4 py-2">
             Project 2
           </button>
         </li>
