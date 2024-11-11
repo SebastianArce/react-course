@@ -1,6 +1,6 @@
 import noProjectLogo from "../assets/no-projects.png";
 
-export default function NewProject({ onAddProject }) {
+export default function NewProject({ onAddProject, onCancel }) {
   return (
     <div className="flex items-center justify-center h-screen flex-col gap-4 w-3/4">
       <img

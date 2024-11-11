@@ -11,7 +11,7 @@ function App() {
     <div className="flex">
       <Sidebar onAddProject={() => setAddingProject(true)} />
       {addingProject ? (
-        <Input />
+        <Input onCancel={() => setAddingProject(false)} />
       ) : (
         <NewProject onAddProject={() => setAddingProject(true)} />
       )}
