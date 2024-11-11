@@ -1,4 +1,16 @@
-export default function Input({ onCancel }) {
+import { useState } from "react";
+
+export default function Input({ onCancel, onSave }) {
+  const [project, setProject] = useState({
+    title: "",
+    description: "",
+    dueDate: "",
+  });
+
+  const handleSave = () => {
+    onSave(project);
+  };
+
   return (
     <div className="p-4 bg-gray-50 rounded-lg shadow-sm w-3/5 mx-auto">
       <div className="flex justify-end gap-4 mb-4">
@@ -8,7 +20,10 @@ export default function Input({ onCancel }) {
         >
           Cancel
         </button>
-        <button className="text-white hover:text-green-700 bg-gray-700 px-6 py-2 rounded-md">
+        <button
+          onClick={handleSave}
+          className="text-white hover:text-green-700 bg-gray-700 px-6 py-2 rounded-md"
+        >
           Save
         </button>
       </div>
@@ -20,6 +35,8 @@ export default function Input({ onCancel }) {
           <input
             type="text"
             id="title"
+            value={project.title}
+            onChange={(e) => setProject({ ...project, title: e.target.value })}
             className="w-full px-2 py-1 border-b focus:outline-none focus:border-gray-800 bg-gray-200"
           />
         </div>
@@ -32,6 +49,10 @@ export default function Input({ onCancel }) {
           </label>
           <textarea
             id="description"
+            value={project.description}
+            onChange={(e) =>
+              setProject({ ...project, description: e.target.value })
+            }
             className="w-full px-2 py-1 border-b focus:outline-none focus:border-gray-800 bg-gray-200"
           ></textarea>
         </div>
@@ -45,6 +66,10 @@ export default function Input({ onCancel }) {
           <input
             type="date"
             id="dueDate"
+            value={project.dueDate}
+            onChange={(e) =>
+              setProject({ ...project, dueDate: e.target.value })
+            }
             className="w-full px-2 py-1 border-b focus:outline-none focus:border-gray-800 bg-gray-200"
           />
         </div>
