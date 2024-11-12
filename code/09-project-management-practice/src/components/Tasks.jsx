@@ -28,9 +28,14 @@ export default function Tasks({ projectId, tasks, onAddTask }) {
         </button>
       </div>
       {tasks.length > 0 ? (
-        <ul className="list-disc pl-8">
+        <ul className="list-none px-8 py-12 mt-4 bg-gray-100 space-y-3">
           {tasks.map((task, index) => (
-            <li key={index}>{task}</li>
+            <li key={index}>
+              <div className="flex justify-between">
+                <p>{task}</p>
+                <button className="hover:text-red-700">Clear</button>
+              </div>
+            </li>
           ))}
         </ul>
       ) : (
