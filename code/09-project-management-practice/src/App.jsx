@@ -43,6 +43,31 @@ function App() {
     );
   }
 
+  function handleRemoveTask(projectId, taskIndex) {
+    setProjects((prevProjects) =>
+      prevProjects.map((project) =>
+        project.id === projectId
+          ? {
+              ...project,
+              tasks: project.tasks.filter((_, index) => index !== taskIndex),
+            }
+          : project
+      )
+    );
+
+    // Update the selected project to trigger re-render
+    setSelectedProject((prevSelectedProject) =>
+      prevSelectedProject && prevSelectedProject.id === projectId
+        ? {
+            ...prevSelectedProject,
+            tasks: prevSelectedProject.tasks.filter(
+              (_, index) => index !== taskIndex
+            ),
+          }
+        : prevSelectedProject
+    );
+  }
+
   return (
     <div className="flex">
       <Sidebar
@@ -53,7 +78,11 @@ function App() {
       {addingProject ? (
         <Input onSave={handleSave} onCancel={() => setAddingProject(false)} />
       ) : selectedProject ? (
-        <ProjectDetails project={selectedProject} onAddTask={handleAddTask} />
+        <ProjectDetails
+          project={selectedProject}
+          onAddTask={handleAddTask}
+          onRemoveTask={handleRemoveTask}
+        />
       ) : (
         <NewProject onAddProject={() => setAddingProject(true)} />
       )}

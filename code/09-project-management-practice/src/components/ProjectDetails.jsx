@@ -1,6 +1,6 @@
 import Tasks from "./Tasks.jsx";
 
-export default function ProjectDetails({ project, onAddTask }) {
+export default function ProjectDetails({ project, onAddTask, onRemoveTask }) {
   return (
     <div className="pt-16 pr-24 bg-gray-50 w-3/5 mx-auto flex flex-col gap-3">
       <div className="flex justify-between">
@@ -14,6 +14,7 @@ export default function ProjectDetails({ project, onAddTask }) {
         projectId={project.id}
         tasks={project.tasks}
         onAddTask={onAddTask}
+        onRemoveTask={onRemoveTask}
       />
     </div>
   );

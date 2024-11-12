@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-export default function Tasks({ projectId, tasks, onAddTask }) {
+export default function Tasks({ projectId, tasks, onAddTask, onRemoveTask }) {
   const inputRef = useRef();
 
   function handleAddTask() {
@@ -33,7 +33,12 @@ export default function Tasks({ projectId, tasks, onAddTask }) {
             <li key={index}>
               <div className="flex justify-between">
                 <p>{task}</p>
-                <button className="hover:text-red-700">Clear</button>
+                <button
+                  onClick={() => onRemoveTask(projectId, index)}
+                  className="hover:text-red-700"
+                >
+                  Clear
+                </button>
               </div>
             </li>
           ))}
