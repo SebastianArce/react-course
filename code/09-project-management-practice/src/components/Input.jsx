@@ -5,6 +5,7 @@ export default function Input({ onCancel, onSave }) {
     title: "",
     description: "",
     dueDate: "",
+    tasks: [],
   });
 
   const handleSave = () => {
