@@ -2,7 +2,7 @@ import { FaPlus } from "react-icons/fa";
 
 export default function Sidebar({ onAddProject, projects, onSelectProject }) {
   return (
-    <div className=" p-4 w-1/4 bg-gray-800 h-screen">
+    <aside className=" p-4 w-1/4 bg-gray-800 h-screen">
       <div className="flex items-center justify-left h-16 text-white text-2xl font-bold">
         YOUR PROJECTS
       </div>
@@ -26,6 +26,6 @@ export default function Sidebar({ onAddProject, projects, onSelectProject }) {
           </li>
         ))}
       </ul>
-    </div>
+    </aside>
   );
 }

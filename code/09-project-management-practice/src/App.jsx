@@ -69,7 +69,7 @@ function App() {
   }
 
   return (
-    <div className="flex">
+    <main className="flex h-screen">
       <Sidebar
         projects={projects}
         onAddProject={() => setAddingProject(true)}
@@ -86,7 +86,7 @@ function App() {
       ) : (
         <NewProject onAddProject={() => setAddingProject(true)} />
       )}
-    </div>
+    </main>
   );
 }
 
