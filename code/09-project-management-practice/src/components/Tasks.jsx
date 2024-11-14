@@ -5,6 +5,9 @@ export default function Tasks({ projectId, tasks, onAddTask, onRemoveTask }) {
 
   function handleAddTask() {
     const task = inputRef.current.value;
+    if (task.trim() === "") {
+      return;
+    }
     onAddTask(projectId, task);
     inputRef.current.value = "";
   }
