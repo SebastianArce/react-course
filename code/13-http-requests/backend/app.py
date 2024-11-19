@@ -21,7 +21,9 @@ app.add_middleware(
 async def read_image(file_path: str):
     file_location = os.path.join("images", file_path)
     if os.path.exists(file_location):
-        return FileResponse(file_location)
+        response = FileResponse(file_location)
+        response.headers["Access-Control-Allow-Origin"] = "*"  # CORS
+        return response
     else:
         raise HTTPException(status_code=404, detail="File not found")
 
