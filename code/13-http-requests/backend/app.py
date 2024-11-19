@@ -30,9 +30,11 @@ async def read_image(file_path: str):
 
 # Models
 class Place(BaseModel):
-    id: int
-    name: str
-    description: str
+    id: str
+    title: str
+    image: dict
+    lat: float
+    lon: float
 
 
 @app.get("/places")
@@ -50,13 +52,10 @@ async def get_user_places():
 
 
 @app.put("/user-places")
-async def update_user_places(place: Place):
-    with open("./data/user-places.json", "r") as file:
-        places = json.load(file)
-
-    places.append(place.model_dump())
+async def update_user_places(places: list[Place]):
+    places_dict = [place.dict() for place in places]
 
     with open("./data/user-places.json", "w") as file:
-        json.dump(places, file, indent=4)
+        json.dump(places_dict, file, indent=4)
 
     return {"message": "Place updated successfully"}
